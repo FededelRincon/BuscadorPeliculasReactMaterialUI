@@ -3,7 +3,7 @@ import React from 'react';
 const PopularMovies = () => {
     return (
         <div>
-            <li>populares: 1 lista grande (reusando el componente de arriba)</li>
+            populares: 1 lista grande (posiblemente reciclando el buscador del home o de nuevas)
         </div>
     )
 }
