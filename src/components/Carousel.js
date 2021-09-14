@@ -59,9 +59,6 @@ const useStyles = makeStyles({
 export default function Carousell({ movies }) {
     const {results} = movies
 
-
-    if (!results) return null;
-
     return (
         <Carousel
             autoPlay='true'

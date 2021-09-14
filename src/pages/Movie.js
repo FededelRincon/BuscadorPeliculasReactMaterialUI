@@ -3,7 +3,7 @@ import React from 'react';
 const Movie = props => {
     return (
         <div>
-            pelicula 1 sola...
+            Info de 1 pelicula...
         </div>
     )
 }
