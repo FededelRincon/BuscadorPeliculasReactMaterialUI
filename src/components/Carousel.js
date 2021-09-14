@@ -101,7 +101,7 @@ const Item = ({ id, original_title, poster_path, backdrop_path, overview }) => {
                     <Typography variant="h4" gutterBottom>
                         {original_title}
                     </Typography>
-                    <Typography variant="h7" gutterBottom>
+                    <Typography variant="body2" gutterBottom>
                         {overview}
                     </Typography>
                 
