@@ -1,25 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import { ThemeProvider } from "@material-ui/styles";
+import { AppRouter } from "./router/AppRouter";
+import theme from './themeConfig';
+// import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <>
+            <ThemeProvider theme={theme}>
+                <AppRouter />
+            </ThemeProvider>
+        </>
+    );
 }
 
 export default App;
