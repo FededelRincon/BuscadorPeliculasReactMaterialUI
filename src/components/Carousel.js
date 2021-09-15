@@ -6,18 +6,12 @@ import { makeStyles } from '@material-ui/styles';
 
 import { Link } from "react-router-dom";
 
-import './Carousel.css';
-
-// TODO: sacar el border-line que tiene encima de los puntos del carousel
-
-
 const useStyles = makeStyles({
     imagenBackground: {
         backgroundSize: 'cover',
         maxWidth: '100%',
         width: '100%',
         opacity: '60%'
-        // TODO: "subir" la imagen de fondo, para q quede enfocada al medio...
     },
     imageFront:{
         position: 'absolute',
@@ -61,15 +55,18 @@ export default function Carousell({ movies }) {
 
     return (
         <Carousel
+        indicatorIconButtonProps={{
+            style: {
+                padding: '8px',
+                color: '#00796b',
+                display: 'none',
+            }
+        }}
+            fullHeightHover={false}
             autoPlay='true'
-            interval='3500'
+            interval='3000'
             navButtonsAlwaysVisible='true'
-            animation='slide'
-            activeIndicatorIconButtonProps={{
-                style: {
-                    backgroundColor: 'transparent'
-                }
-            }}
+            animation='fade'
             indicatorContainerProps={{
                 style: {
                     marginTop: '0px',
