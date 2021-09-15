@@ -10,15 +10,14 @@ export const Home = () => {
     const carrouselMovies = useFetch(
         `${URL_API}/movie/now_playing?api_key=${API_KEY}&language=es-ES&page=1`
     );
-    console.log(carrouselMovies)
 
     const popularMovies = useFetch(
         `${URL_API}/movie/popular?api_key=${API_KEY}&language=es-ES&page=1`
     );
 
-    // const topRatedMovies = useFetch(
-    //     // `${URL_API}/movie/top_rated?api_key=${API_KEY}&language=es-ES&page=1`
-    // );
+    const topRatedMovies = useFetch(
+        `${URL_API}/movie/top_rated?api_key=${API_KEY}&language=es-ES&page=1`
+    );
     
 
     return (
@@ -28,22 +27,22 @@ export const Home = () => {
             )}
 
 
-            <Grid container spacing={2}>
+            <Grid container spacing={0}>
                 <Grid item xs={6}>
                     <Grid container justifyContent="center">
-                        {( popularMovies.loading || popularMovies.result.success === false) ? <p>No hay informacion para mostrar</p> : (
-                            <MovieList title="Titulo popular Movies" movies={popularMovies} />
-                         )}
+                        {( popularMovies.loading || popularMovies.result.success === false) 
+                            ? ( <p>No hay informacion para mostrar</p> ) 
+                            : ( <MovieList listTitle="Titulo popular Movies" movies={popularMovies.result.results} /> 
+                        )}
                     </Grid>
                 </Grid>
 
                 <Grid item xs={6}>
                     <Grid container justifyContent="center">
-                        {/* sin probar esto... */}
-                        {/* {( topRatedMovies.loading || topRatedMovies.result.success === false) ? <p>No hay informacion para mostrar</p> : (
-                            <MovieList title="Titulo popular Movies" movies={topRatedMovies} />
-                        )} */}
-                        columna2 
+                        {( topRatedMovies.loading || topRatedMovies.result.success === false) 
+                            ? ( <p>No hay informacion para mostrar</p> ) 
+                            : ( <MovieList listTitle="Titulo mas votadas Movies" movies={topRatedMovies.result.results} /> 
+                        )}
                     </Grid>
                 </Grid>
 
