@@ -9,17 +9,16 @@ import MovieListItem from './MovieListItem';
 const useStyles = makeStyles({
     root: {
         flexGrow: 1,
-        maxWidth: 752,
+        // maxWidth: 752,
         backgroundColor: '#9e9e9e',
         margin: '1rem 5rem',
         padding: '0 2rem',
     },
     demo: {
-        backgroundColor: '#e0e0e0',
+        // backgroundColor: '#e0e0e0',
         minWidth: '36rem',
         margin: '1rem 0 2rem 0',
-
-        // width: '100%',
+        
         // width: '30rem',
         // padding: '0 0 0 0',
         // alignItems: 'center',
@@ -27,18 +26,19 @@ const useStyles = makeStyles({
         // border: '1px solid #000',
     },
     title: {
-        border: '1px solid #000',
+        // border: '1px solid #000',
         width: '36rem',
         margin: '2rem 0 0 0',
         textAlign: 'center',
         backgroundColor: '#00796b',
         padding: '1rem',
-
+        
         // borderBottom: '0',
         // minWidth: '36rem',
     },
     underlined: {
-        padding: '0',
+        // width: '100%',
+        padding: '0rem',
     }
 });
 
@@ -51,7 +51,7 @@ const MovieList = ({ movies, listTitle }) => {
         <>
             <div className={classes.root}>
                 <Grid container spacing={2}>
-                    <Grid item xs={12} md={6}>
+                    <Grid item md={4} sm={6} xs={12}>
                         <Typography variant="h6" className={classes.title}>
                             {listTitle}
                         </Typography>

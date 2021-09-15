@@ -9,6 +9,8 @@ import AddCircleSharpIcon from '@material-ui/icons/AddCircleSharp';
 import { makeStyles } from '@material-ui/styles';
 import { Link } from "react-router-dom";
 
+import { API_RESULT } from '../utils/constants';
+
 
 const useStyles = makeStyles({
     imageCircle: {
@@ -16,7 +18,12 @@ const useStyles = makeStyles({
         width: '120%',
     },
     underlined: {
-        border: '1px solid #000'
+        marginTop: '2px',
+        backgroundColor: '#e0e0e0',
+
+        
+        // borderTop: '2px solid #9e9e9e',
+        // borderBottom: '2px solid #9e9e9e',
     }
 })
 
@@ -25,7 +32,8 @@ const MovieListItem = ({ movie }) => {
     const { id, original_title, poster_path, title } = movie;
     const classes = useStyles();
 
-    const posterPath = `https://image.tmdb.org/t/p/original${poster_path}`;
+    // const posterPath = `https://image.tmdb.org/t/p/original${poster_path}`;
+    const posterPath = `${API_RESULT}${poster_path}`;
 
     return (
         <>
@@ -47,7 +55,7 @@ const MovieListItem = ({ movie }) => {
                 />
 
                 <ListItemSecondaryAction>
-                    <IconButton edge="end" aria-label="arrow" variant="contained" color="pŕimary">
+                    <IconButton edge="end" aria-label="arrow" variant="contained" color="primary">
                         <Link to={`/pelicula/${id}`}>
                             <AddCircleSharpIcon color="primary" fontSize="large" />
                         </Link>

@@ -5,8 +5,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
-import Fab from '@material-ui/core/Fab';
-import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import Zoom from '@material-ui/core/Zoom';
 import Button from '@material-ui/core/Button';
 import { ReactComponent as Logo } from "../assets/TMDB2.svg";
@@ -135,11 +133,11 @@ Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`,
             .join('\n')}
         </Box>
       </Container> */}
-      <ScrollTop {...props}>
+      {/* <ScrollTop {...props}>
         <Fab color="secondary" size="small" aria-label="scroll back to top">
           <KeyboardArrowUpIcon />
         </Fab>
-      </ScrollTop>
+      </ScrollTop> */}
     </React.Fragment>
   );
 }
