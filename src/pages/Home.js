@@ -5,6 +5,8 @@ import { API_KEY, URL_API } from '../utils/constants';
 import Carousel from '../components/Carousel';
 import useFetch from '../hooks/useFetch';
 import MovieList from '../components/MovieList';
+import CircularProgress from "@material-ui/core/CircularProgress";
+
 
 export const Home = () => {
     const carrouselMovies = useFetch(
@@ -22,7 +24,7 @@ export const Home = () => {
 
     return (
         <>
-            {(carrouselMovies.loading || carrouselMovies.result.success === false) ? <p>No hay informacion para mostrar</p> : (
+            {(carrouselMovies.loading || carrouselMovies.result.success === false) ? <CircularProgress /> : (
                     <Carousel movies={carrouselMovies.result} />
             )}
 
@@ -31,7 +33,7 @@ export const Home = () => {
                 <Grid item xs={6}>
                     <Grid container justifyContent="center">
                         {( popularMovies.loading || popularMovies.result.success === false) 
-                            ? ( <p>No hay informacion para mostrar</p> ) 
+                            ? ( <CircularProgress /> ) 
                             : ( <MovieList listTitle="Titulo popular Movies" movies={popularMovies.result.results} /> 
                         )}
                     </Grid>
@@ -40,7 +42,7 @@ export const Home = () => {
                 <Grid item xs={6}>
                     <Grid container justifyContent="center">
                         {( topRatedMovies.loading || topRatedMovies.result.success === false) 
-                            ? ( <p>No hay informacion para mostrar</p> ) 
+                            ? ( <CircularProgress /> ) 
                             : ( <MovieList listTitle="Titulo mas votadas Movies" movies={topRatedMovies.result.results} /> 
                         )}
                     </Grid>

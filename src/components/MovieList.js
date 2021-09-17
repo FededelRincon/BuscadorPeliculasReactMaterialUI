@@ -45,7 +45,6 @@ const useStyles = makeStyles({
 
 const MovieList = ({ movies, listTitle }) => {
     const classes = useStyles();
-    console.log(movies)
 
     return (
         <>
