@@ -1,8 +1,6 @@
 import { createTheme } from '@material-ui/core/styles';
-// import purple from '@material-ui/core/colors/purple';
 import red from '@material-ui/core/colors/red';
 import teal from '@material-ui/core/colors/teal';
-// import lightGreen from '@material-ui/core/colors/lightGreen';
 
 
 const theme = createTheme({
@@ -20,7 +18,7 @@ const theme = createTheme({
             // light: red[300],
             // contrastText: '#000'
         },
-    }
+    },
 });
 
 export default theme;

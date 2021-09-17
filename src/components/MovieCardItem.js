@@ -1,38 +1,47 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+
+import { Card, CardMedia, CardContent, CardActions, Button } from '@material-ui/core';
+
 
 import { API_RESULT } from '../utils/constants';
 import { Link } from "react-router-dom";
 
 
 
-const useStyles = makeStyles({
-    root: {
-        margin: '10px 10px',
-        borderRadius: '20px',
-    },
-    media: {
-        borderRadius: '10px',
-        height: '550px',
-    },
+const useStyles = makeStyles( (theme) => ({
     cardContent: {
-        backgroundColor: '#616161',
+        borderRadius: '15px',
     },
-    title: {
-        borderRadius: '10px',
+    titleContent: {
+        borderRadius: ' 0 0 10px 10px',
         backgroundColor: '#9e9e9e',
         textAlign: 'center',
-        height: '70px',
+
+        maxHeight: '100px',
+
+        minHeight: '100px',
+    },
+    title: {
+        margin: '0 0',
+        minHeight: '80px',
+        padding: '10px',
     },
     button: {
         margin: '0 auto',
     },
-  });
+    linkButton: {
+        margin: '0 auto',
+        textDecoration: 'none',
+        "&:hover": {
+            textDecoration: 'none',
+            opacity:'1'
+        },
+
+    }
+
+}));
 
 
 const MovieCardItem = ({movie}) => {
@@ -43,26 +52,45 @@ const MovieCardItem = ({movie}) => {
 
     return (
         <>
-            <Card className={classes.root} variant='outlined'>
-                <CardContent className={classes.cardContent}>
-                    <Link to={`/pelicula/${id}`}>
-                        <CardMedia
-                        className={classes.media}
-                        image={posterPath}
-                        title={title}
-                        />
-                    </Link>
+            <Card
+                sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+                variant='outlined'
+                className={classes.cardContent}
+            >
+                <CardMedia
+                    component="img"
+                    sx={{
+                        // 16:9
+                        pt: '56.25%',
+                    }}
+                    image={ posterPath }
+                    alt={title}
+                />
+                {/* TODO: imagen random en assets, por si no llega la info ?? */}
 
-                    <CardContent>
-                        <CardActionArea>
-                            <Typography variant="h6" component="h2" className={classes.title} >
-                                {title}
-                            </Typography>
-                        </CardActionArea>
-                    </CardContent>
-
+                <CardContent sx={{ flexGrow: 1 }} className={classes.titleContent}>
+                    <Typography variant="subtitle1" component="span" className={classes.title}>
+                        {title}
+                        {/* TODO: how fix if title is too long when collapse ?? */}
+                    </Typography>
                 </CardContent>
+
+                <CardActions>
+                    <Link to={`/pelicula/${id}`} className={classes.linkButton} >
+                        <Button 
+                            variant="contained" 
+                            color="primary"  
+                            className={classes.button}
+                            href="#contained-buttons"
+                            size="large"
+                            component="div"
+                        >
+                            Ver Mas...
+                        </Button>
+                    </Link>
+                </CardActions>
             </Card>
+
         </>
     )
 }
