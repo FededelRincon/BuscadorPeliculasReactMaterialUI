@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     },
     container: {
         margin: '30px auto',
-        width: '31%',
+        width: '33%',
     },
 }));
 
@@ -24,6 +24,7 @@ const PaginationComp = ({ pageTotal, page, setPage }) => {
     const paginatorButton = (e) => {
         setPage( parseInt(e.target.outerText) );
         window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({ behavior: 'smooth', block: 'center' });
     }
     
     useEffect(() => {

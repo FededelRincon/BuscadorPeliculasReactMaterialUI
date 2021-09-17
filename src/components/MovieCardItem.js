@@ -8,8 +8,6 @@ import { Card, CardMedia, CardContent, CardActions, Button } from '@material-ui/
 import { API_RESULT } from '../utils/constants';
 import { Link } from "react-router-dom";
 
-
-
 const useStyles = makeStyles( (theme) => ({
     cardContent: {
         borderRadius: '15px',
@@ -65,7 +63,10 @@ const MovieCardItem = ({movie}) => {
                     }}
                     image={ posterPath }
                     alt={title}
+                    title={title}
                 />
+
+
                 {/* TODO: imagen random en assets, por si no llega la info ?? */}
 
                 <CardContent sx={{ flexGrow: 1 }} className={classes.titleContent}>
