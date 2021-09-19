@@ -14,7 +14,7 @@ import Home from '../pages/Home';
 import Movie from '../pages/Movie';
 import NewMovies from '../pages/NewMovies';
 import PopularMovies from '../pages/PopularMovies';
-import Search from '../pages/Search';
+import SearchComponent from '../pages/SearchComponent';
 
 
 export const AppRouter = () => {
@@ -36,7 +36,7 @@ export const AppRouter = () => {
                         <PopularMovies />
                     </Route>
                     <Route exact path="/buscar" >
-                        <Search />
+                        <SearchComponent />
                     </Route>
                     <Route path="/pelicula/:id" >
                         <Movie />

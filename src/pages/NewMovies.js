@@ -28,13 +28,18 @@ const NewMovies = () => {
     useEffect(() => {
         const searchInfoApi = async () => {
             setLoading(true);
-            const url = `${URL_API}/movie/now_playing?api_key=${API_KEY}&lenguage=es-ES&page=${page}`
-            const response = await fetch(url);
-            const result = await response.json();
-            
-            setMovieList(result.results);
-            setPageTotal(result.total_pages);
-            setLoading(false);
+            try {
+                const url = `${URL_API}/movie/now_playing?api_key=${API_KEY}&lenguage=es-ES&page=${page}`
+                const response = await fetch(url);
+                const result = await response.json();
+                
+                setMovieList(result.results);
+                setPageTotal(result.total_pages);
+                setLoading(false);
+            } catch (error) {
+                console.log(error);
+                return null;
+            }
         }
         
         searchInfoApi();
@@ -45,20 +50,20 @@ const NewMovies = () => {
             <Typography variant="h2" className={classes.title}>
                 Nuevas peliculas
             </Typography>
-            <Container >
 
-            <Grid container spacing={2} alignItems="center">
-                {
-                    loading 
-                        ? (<CircularProgress /> ) : (
-                            movieList.map( (movie) => (
-                                <Grid item xs={12} sm={6} md={3} key={movie.id} >
-                                    <MovieCardItem movie={movie} key={movie.id} />
-                                </Grid>
-                            ))
-                        )
-                }
-            </Grid>
+            <Container >
+                <Grid container spacing={2} alignItems="center">
+                    {
+                        loading 
+                            ? (<CircularProgress /> ) : (
+                                movieList.map( (movie) => (
+                                    <Grid item xs={12} sm={6} md={3} key={movie.id} >
+                                        <MovieCardItem movie={movie} key={movie.id} />
+                                    </Grid>
+                                ))
+                            )
+                    }
+                </Grid>
             </Container>
 
             <PaginationComp pageTotal={pageTotal} setPage={setPage} page={page} />
