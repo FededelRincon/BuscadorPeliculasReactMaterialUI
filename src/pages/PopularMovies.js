@@ -28,16 +28,18 @@ const PopularMovies = () => {
     useEffect(() => {
         const searchInfoApi = async () => {
             setLoading(true);
-            // const url = `${URL_API}/movie/now_playing?api_key=${API_KEY}&lenguage=es-ES&page=${page}`
-            const url = `${URL_API}/movie/popular?api_key=${API_KEY}&lenguage=es-ES&page=${page}`
-            
-
-            const response = await fetch(url);
-            const result = await response.json();
-            
-            setMovieList(result.results);
-            setPageTotal(result.total_pages);
-            setLoading(false);
+            try {
+                const url = `${URL_API}/movie/popular?api_key=${API_KEY}&lenguage=es-ES&page=${page}`
+                const response = await fetch(url);
+                const result = await response.json();
+                
+                setMovieList(result.results);
+                setPageTotal(result.total_pages);
+                setLoading(false);
+            } catch (error) {
+                console.log(error)
+                return null;
+            }
         }
         
         searchInfoApi();
