@@ -22,7 +22,7 @@ const NewMovies = () => {
     const classes = useStyles();
     const [movieList, setMovieList] = useState([]);
     const [page, setPage] = useState(1);
-    const [pageTotal, setPageTotal] = useState(1)
+    const [pageTotal, setPageTotal] = useState(1);
     const [loading, setLoading] = useState(true);
     
     useEffect(() => {
