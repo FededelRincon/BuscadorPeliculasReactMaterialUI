@@ -1,12 +1,12 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-
+import Skeleton from '@material-ui/lab/Skeleton';
+import { Link } from "react-router-dom";
 import { Card, CardMedia, CardContent, CardActions, Button } from '@material-ui/core';
 
-
 import { API_RESULT } from '../utils/constants';
-import { Link } from "react-router-dom";
+import './MovieCardItem.css';
 
 const useStyles = makeStyles( (theme) => ({
     cardContent: {
@@ -36,9 +36,7 @@ const useStyles = makeStyles( (theme) => ({
             textDecoration: 'none',
             opacity:'1'
         },
-
     }
-
 }));
 
 
@@ -55,19 +53,24 @@ const MovieCardItem = ({movie}) => {
                 variant='outlined'
                 className={classes.cardContent}
             >
-                <CardMedia
-                    component="img"
-                    sx={{
-                        // 16:9
-                        pt: '56.25%',
-                    }}
-                    image={ posterPath }
-                    alt={title}
-                    title={title}
-                />
+                {poster_path ? (
+                    <CardMedia
+                        component="img"
+                        sx={{
+                            // 16:9
+                            pt: '56.25%',
+                        }}
+                        image={ posterPath }
+                        alt={title}
+                        title={title}
+                    />
+                ) : (
+                    <Skeleton 
+                        animation="wave"
+                        variant="rect" 
+                    />
+                )}
 
-
-                {/* TODO: imagen random en assets, por si no llega la info ?? */}
 
                 <CardContent sx={{ flexGrow: 1 }} className={classes.titleContent}>
                     <Typography variant="subtitle1" component="span" className={classes.title}>

@@ -112,7 +112,8 @@ export default function SearchPage() {
         }
     
         getSearch();
-
+        //i dont need movies as dependency
+        // eslint-disable-next-line
     }, [search, noResults, page, pageTotal])
 
     return (
