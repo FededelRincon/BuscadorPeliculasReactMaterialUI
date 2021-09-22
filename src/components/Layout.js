@@ -31,7 +31,6 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: '15px',
     textDecoration: 'none',
     color: '#000',
-    // TODO: porque no me toma el color primario o secundario ??
     "&:hover": {
         textDecoration: 'none',
         opacity:'1'

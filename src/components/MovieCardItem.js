@@ -54,6 +54,7 @@ const MovieCardItem = ({movie}) => {
                 className={classes.cardContent}
             >
                 {poster_path ? (
+                    <Link to={`/pelicula/${id}`} className={classes.linkButton} >
                     <CardMedia
                         component="img"
                         sx={{
@@ -64,6 +65,7 @@ const MovieCardItem = ({movie}) => {
                         alt={title}
                         title={title}
                     />
+                    </Link>
                 ) : (
                     <Skeleton 
                         animation="wave"
