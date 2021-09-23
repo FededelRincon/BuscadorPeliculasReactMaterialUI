@@ -8,6 +8,8 @@ import { Card, CardMedia, CardContent, CardActions, Button } from '@material-ui/
 import { API_RESULT } from '../utils/constants';
 import './MovieCardItem.css';
 
+
+
 const useStyles = makeStyles( (theme) => ({
     cardContent: {
         borderRadius: '15px',

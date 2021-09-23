@@ -3,7 +3,6 @@ import Skeleton from '@material-ui/lab/Skeleton';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, CardActions, CardMedia, Grid, Typography } from '@material-ui/core';
 
-
 import { API_RESULT } from '../utils/constants';
 import { Link, useHistory } from 'react-router-dom';
 
@@ -21,27 +20,30 @@ const useStyles = makeStyles( (theme) => ({
         },
     },
     imgBackground: {
-        height: '100%',
+        height: '120%',
         opacity: '60%',
         position: 'absolute',
-        zIndex: '-1'
-        
+        zIndex: '-1',
+        backgroundSize: "cover",
+
+        // backgroundPosition: 'center',
+        // backgroundAttachment: 'scroll',
+        // backgroundAttachment: 'fixed',
+        // backgroundImage: `${imagenBackground}`,
+        backgroundColor: '#66999',
     },
     imgFront: {
         position: 'relative',
         height: '90%',
         size: '200px',
-        // width: '95%',
-        // left: '15%',
-        // marginTop: '2rem',
-        // margin: '1rem auto',
-        margin: '4rem auto 0 auto',
+        margin: '3rem auto 0 auto',
+        width: '55%',
+        minWidth: '18rem',
     },
     title: {
-        width: '36rem',
         margin: '1rem 0 1rem 0',
         textAlign: 'center',
-        backgroundColor: '#00796b',
+        backgroundColor: '#a7a7a7a7',
         borderRadius: '20px',
         padding: '1rem',
     },
@@ -53,18 +55,19 @@ const useStyles = makeStyles( (theme) => ({
         alignItems: 'flex-end',
     },
     ul: {
-        // backgroundColor: '#951',
         marginTop: '1rem',
     },
-    button: {
-        margin: '0 auto',
+    fondoBlanco: {
+        backgroundColor: '#a7a7a7a7',
+        borderRadius: '20px',
+        padding: '0.5rem',
     },
 }));
 
 
 const RenderMovie = ({ movieInfo }) => {
     const classes = useStyles();
-    const { backdrop_path, poster_path, genres, homepage, id, title, original_title, overview, release_date, spoken_languages} = movieInfo;
+    const { backdrop_path, poster_path, genres, id, title, original_title, overview, release_date, spoken_languages} = movieInfo;
 
     const history = useHistory();
 
@@ -94,11 +97,11 @@ const RenderMovie = ({ movieInfo }) => {
                         )
             }
 
-            <Grid container spacing={0}>
-                <Grid item xs={1}></Grid>
-                <Grid item xs={3}>
-                    {imagenFront ? (
-                        <CardMedia
+            <Grid container spacing={2}>
+                <Grid item xs={11} md={6} >
+                    {
+                        imagenFront ? (
+                            <CardMedia
                             component="img"
                             sx={{
                                 // 16:9
@@ -108,48 +111,51 @@ const RenderMovie = ({ movieInfo }) => {
                             alt={title}
                             title={title}
                             className={classes.imgFront}
-                        />
-                    ) : (
-                        <Skeleton 
+                            />
+                        ) : (
+                            <Skeleton 
                             animation="wave"
                             variant="rect" 
-                        />
-                    )}
+                            />
+                        )
+                    }
                 </Grid>
-                <Grid item xs={1}></Grid>
-                <Grid item xs={5}>
+                <Grid item md={1}></Grid>
+                <Grid item xs={12} md={4}>
                     <Typography variant="h4" gutterBottom className={classes.title}>
                         {original_title}
                     </Typography>
 
-                    <Typography gutterBottom variant="h4">
-                        Descripcion: 
-                    </Typography>
-                    
-                    <Typography variant="body1" component="span" className={classes.description}>
-                        {overview} Lanzamiento: {release_date.slice(0,4)}
-                    </Typography>
-                    
-                    <Typography variant="h5" className={classes.ul}>
-                        Generos: 
-                    </Typography>
+                    <div className={classes.fondoBlanco}>
+                        <Typography gutterBottom variant="h4">
+                            Descripcion: 
+                        </Typography>
+                        
+                        <Typography variant="body1" component="span" className={classes.description}>
+                            {overview} Lanzamiento: {release_date.slice(0,4)}
+                        </Typography>
+                        
+                        <Typography variant="h5" className={classes.ul}>
+                            Generos: 
+                        </Typography>
+                            <ul>
+                                {
+                                    genres.map( gen => (
+                                        <li key={gen.id}>{gen.name}.</li>
+                                    ))
+                                }
+                            </ul>
+                        <Typography variant="h5" className={classes.ul}>
+                            Idiomas disponibles:
+                        </Typography>
                         <ul>
                             {
-                                genres.map( gen => (
-                                    <li key={gen.id}>{gen.name}.</li>
+                                spoken_languages.map( (languaje, id )=> (
+                                        <li key={id}>{languaje.name}</li>
                                 ))
                             }
                         </ul>
-                    <Typography variant="h5" className={classes.ul}>
-                        Idiomas disponibles:
-                    </Typography>
-                    <ul>
-                        {
-                            spoken_languages.map( (languaje, id )=> (
-                                    <li key={id}>{languaje.name}</li>
-                            ))
-                        }
-                    </ul>
+                    </div>
                 <CardActions
                     className={classes.button}
                 >
@@ -166,16 +172,11 @@ const RenderMovie = ({ movieInfo }) => {
                         </Button>
                     </Link>
                 </CardActions>
-
-
                 </Grid>
-                <Grid item xs={2}></Grid>
-
-
+                <Grid item xs={1} md={1}></Grid>
             </Grid>
-
-                </>
-            )
+        </>
+    )
 }
 
 export default RenderMovie;
