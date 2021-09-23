@@ -8,6 +8,8 @@ import { Card, CardMedia, CardContent, CardActions, Button } from '@material-ui/
 import { API_RESULT } from '../utils/constants';
 import './MovieCardItem.css';
 
+
+
 const useStyles = makeStyles( (theme) => ({
     cardContent: {
         borderRadius: '15px',
@@ -54,6 +56,7 @@ const MovieCardItem = ({movie}) => {
                 className={classes.cardContent}
             >
                 {poster_path ? (
+                    <Link to={`/pelicula/${id}`} className={classes.linkButton} >
                     <CardMedia
                         component="img"
                         sx={{
@@ -64,6 +67,7 @@ const MovieCardItem = ({movie}) => {
                         alt={title}
                         title={title}
                     />
+                    </Link>
                 ) : (
                     <Skeleton 
                         animation="wave"

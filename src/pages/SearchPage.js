@@ -94,10 +94,6 @@ export default function SearchPage() {
                 setMovies(result.results);
                 setLoading(false);
 
-                console.log(movies)
-                console.log(page)
-                console.log(pageTotal)
-
                 
                 if(movies.length !== 0) {
                     setNoResults(false);
@@ -112,7 +108,7 @@ export default function SearchPage() {
         }
     
         getSearch();
-        //i dont need movies as dependency
+        //i dont need movies as dependency, so...
         // eslint-disable-next-line
     }, [search, noResults, page, pageTotal])
 
@@ -156,18 +152,15 @@ export default function SearchPage() {
                 </Grid>
             </Grid>
 
-                {/* Skeleton para las imagenes q no cargan */}
-
             <Container >
                 <Grid container spacing={2} alignItems="center">
                     {
                         movies.length === 0 ? null  : (
-
-                        movies.map( (movie) => (
-                            <Grid item xs={12} sm={6} md={3} key={movie.id} >
-                                <MovieCardItem movie={movie} key={movie.id} />
-                            </Grid>
-                        ))
+                            movies.map( (movie) => (
+                                <Grid item xs={12} sm={6} md={3} key={movie.id} >
+                                    <MovieCardItem movie={movie} key={movie.id} />
+                                </Grid>
+                            ))
                         )
                     }
 
@@ -176,11 +169,11 @@ export default function SearchPage() {
                     }
                 </Grid>
             </Container>
-                {
-                    (movies.length === 0 || pageTotal === 1 ) ? null : (
-                        <PaginationComp pageTotal={pageTotal} setPage={setPage} page={page} />
-                    )
-                }
+            {
+                (movies.length === 0 || pageTotal === 1 ) ? null : (
+                    <PaginationComp pageTotal={pageTotal} setPage={setPage} page={page} />
+                )
+            }
         </>
     );
 }
