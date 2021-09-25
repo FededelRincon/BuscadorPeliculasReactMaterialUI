@@ -2,14 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useHistory, useLocation } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import { Button, Container, Grid } from '@material-ui/core';
+import { Container, Grid } from '@material-ui/core';
 import queryString from "query-string";
 
 
 import MovieCardItem from '../components/MovieCardItem';
 import PaginationComp from '../components/PaginationComp';
 import { ReactComponent as Logo } from "../assets/Search.svg";
-import SearchIcon from '@material-ui/icons/Search';
 import { API_KEY, URL_API } from '../utils/constants';
 
 
@@ -50,8 +49,9 @@ export default function SearchPage() {
     const [showMovieList, setShowMovieList] = useState(false);
     const [showNoResult, setShowNoResult] = useState(false)
 
-    // const [page, setPage] = useState(1);
-    // const [pageTotal, setPageTotal] = useState(1);
+    const [page, setPage] = useState(1);
+    const [pageTotal, setPageTotal] = useState(1);
+    const [showPagination, setShowPagination] = useState(false);
     
 
     const handleInputChange = (e) => {
@@ -63,12 +63,14 @@ export default function SearchPage() {
         const urlParams = queryString.parse(location.search);//es el query en la barra de navegaacion
         urlParams.s = e.target.value; //query en el buscador
         if(e.target.value === '') {
+            setShowPagination(false);
             setFirstRender(true)
             history.push(`/buscar`)    
             setShowMovieList(false);
         } else {
             history.push(`?${queryString.stringify(urlParams)}`);
             setShowMovieList(true);
+            setShowPagination(true);
         }
     }
     
@@ -81,23 +83,23 @@ export default function SearchPage() {
             const { s } = searchValue.query;
             if(s === undefined) return null;
                 
-            const response = await fetch(`${URL_API}/search/movie?api_key=${API_KEY}&language=es-ES&query=${s}&page=1` );
-            // const response = await fetch(`${URL_API}/search/movie?api_key=${API_KEY}&language=es-ES&query=${s}&page=${page}` );
+            const response = await fetch(`${URL_API}/search/movie?api_key=${API_KEY}&language=es-ES&query=${s}&page=${page}` );
             const movies = await response.json();
+            console.log(movies)
 
             if (movies.results.length === 0) {
                 setShowNoResult(true);
                 setShowMovieList(false);
             } else {
                 setShowNoResult(false);
-                // setPageTotal(result.total_pages);
+                setPageTotal(movies.total_pages);
                 setMovieList(movies.results);
             }
         }
        
         getSearch();
 
-    }, [location.search])
+    }, [location.search, page])
 
     return (
         <>
@@ -108,6 +110,7 @@ export default function SearchPage() {
                     <form 
                         className={classes.root} 
                         noValidate autoComplete="off"
+                        onSubmit={ (e) => e.preventDefault() }
                     >
                 
                         <TextField 
@@ -142,8 +145,14 @@ export default function SearchPage() {
                 </Grid>
             </Container>
 
-            {/* {
-                (showMovieList.length === 0 || pageTotal === 1 ) ? null : (
+            {
+                (showPagination && pageTotal > 1 && !showNoResult ) && 
+                    (
+                        <PaginationComp pageTotal={pageTotal} setPage={setPage} page={page} />
+                    )
+            }
+            {/* { original
+                (movies.length === 0 || pageTotal === 1 ) ? null : (
                     <PaginationComp pageTotal={pageTotal} setPage={setPage} page={page} />
                 )
             } */}
