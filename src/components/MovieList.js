@@ -6,18 +6,24 @@ import Typography from '@material-ui/core/Typography';
 
 import MovieListItem from './MovieListItem';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
     root: {
         flexGrow: 1,
         // maxWidth: 752,
         backgroundColor: '#9e9e9e',
-        margin: '1rem 5rem',
+        // margin: '1rem 5rem',
         padding: '0 2rem',
+        [theme.breakpoints.up("sm")]: {
+            margin: '1rem 5 rem',
+        }
     },
     demo: {
-        // backgroundColor: '#e0e0e0',
-        minWidth: '36rem',
         margin: '1rem 0 2rem 0',
+
+
+        // backgroundColor: '#e0e0e0',
+        // minWidth: '36rem',
+        // margin: '1rem 0 2rem 0',
         
         // width: '30rem',
         // padding: '0 0 0 0',
@@ -26,13 +32,19 @@ const useStyles = makeStyles({
         // border: '1px solid #000',
     },
     title: {
-        // border: '1px solid #000',
-        width: '36rem',
         margin: '2rem 0 0 0',
         textAlign: 'center',
         backgroundColor: '#00796b',
         padding: '1rem',
-        
+
+
+
+        // border: '1px solid #000',
+        // width: '36rem',
+        // margin: '2rem 0 0 0',
+        // textAlign: 'center',
+        // backgroundColor: '#00796b',
+        // padding: '1rem',
         // borderBottom: '0',
         // minWidth: '36rem',
     },
@@ -40,7 +52,7 @@ const useStyles = makeStyles({
         // width: '100%',
         padding: '0rem',
     }
-});
+}));
 
 
 const MovieList = ({ movies, listTitle }) => {
@@ -49,8 +61,8 @@ const MovieList = ({ movies, listTitle }) => {
     return (
         <>
             <div className={classes.root}>
-                <Grid container spacing={2}>
-                    <Grid item md={4} sm={6} xs={12}>
+                {/* <Grid container spacing={2}> */}
+                    {/* <Grid item md={4} sm={6} xs={12}> */}
                         <Typography variant="h6" className={classes.title}>
                             {listTitle}
                         </Typography>
@@ -66,8 +78,8 @@ const MovieList = ({ movies, listTitle }) => {
                                 }
                             </List>
                         </div>
-                    </Grid>
-                </Grid>
+                    {/* </Grid> */}
+                {/* </Grid> */}
             </div>
           </>
     )

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory, useLocation } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { Button, Container, Grid } from '@material-ui/core';
@@ -40,8 +41,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function SearchPage() {
+export default function SearchPage( props ) {
     const classes = useStyles();
+    const history = useHistory();
+    const location = useLocation();
+
+    console.log(history)
+    console.log(location)
+
+
     const [movies, setMovies] = useState([]);
     const [search, setSearch] = useState('');
     const [userWant, setUserWant] = useState('');
@@ -54,6 +62,7 @@ export default function SearchPage() {
     const [page, setPage] = useState(1);
     const [pageTotal, setPageTotal] = useState(1);
 
+    
     const handleInputChange = (e) => {
         setUserWant(e.target.value)
 

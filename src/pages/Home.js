@@ -30,22 +30,22 @@ export const Home = () => {
 
 
             <Grid container spacing={0}>
-                <Grid item xs={6}>
-                    <Grid container justifyContent="center">
+                <Grid item xs={12} lg={6}>
+                    {/* <Grid container justifyContent="center"> */}
                         {( popularMovies.loading || popularMovies.result.success === false) 
                             ? ( <CircularProgress /> ) 
                             : ( <MovieList listTitle="Titulo popular Movies" movies={popularMovies.result.results} /> 
                         )}
-                    </Grid>
+                    {/* </Grid> */}
                 </Grid>
 
-                <Grid item xs={6}>
-                    <Grid container justifyContent="center">
+                <Grid item xs={12} lg={6}>
+                    {/* <Grid container justifyContent="center"> */}
                         {( topRatedMovies.loading || topRatedMovies.result.success === false) 
                             ? ( <CircularProgress /> ) 
                             : ( <MovieList listTitle="Titulo mas votadas Movies" movies={topRatedMovies.result.results} /> 
                         )}
-                    </Grid>
+                    {/* </Grid> */}
                 </Grid>
 
             </Grid>
