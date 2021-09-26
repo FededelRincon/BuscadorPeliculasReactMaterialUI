@@ -1,7 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
 import List from '@material-ui/core/List';
-import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
 import MovieListItem from './MovieListItem';
@@ -61,27 +60,23 @@ const MovieList = ({ movies, listTitle }) => {
     return (
         <>
             <div className={classes.root}>
-                {/* <Grid container spacing={2}> */}
-                    {/* <Grid item md={4} sm={6} xs={12}> */}
-                        <Typography variant="h6" className={classes.title}>
-                            {listTitle}
-                        </Typography>
-                        <div className={classes.demo}>
-                            <List className={classes.underlined}>
-                                {
-                                    movies.map((movie) => (
-                                        <MovieListItem
-                                            key={movie.id} 
-                                            movie={movie} 
-                                        />
-                                    ))
-                                }
-                            </List>
-                        </div>
-                    {/* </Grid> */}
-                {/* </Grid> */}
+                <Typography variant="h6" className={classes.title}>
+                    {listTitle}
+                </Typography>
+                <div className={classes.demo}>
+                    <List className={classes.underlined}>
+                        {
+                            movies.map((movie) => (
+                                <MovieListItem
+                                    key={movie.id} 
+                                    movie={movie} 
+                                />
+                            ))
+                        }
+                    </List>
+                </div>
             </div>
-          </>
+        </>
     )
 }
 

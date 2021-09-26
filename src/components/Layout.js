@@ -26,7 +26,6 @@ const useStyles = makeStyles((theme) => ({
   },
   menuButtons: {
     marginLeft:'5px',
-    // backgroundColor:'#951546',
     padding: '12px',
     paddingLeft: '15px',
     textDecoration: 'none',
@@ -36,6 +35,9 @@ const useStyles = makeStyles((theme) => ({
         opacity:'1'
     }
   },
+  topButton: {
+    right: theme.spacing(-1),
+  }
 }));
 
 function ScrollTop(props) {
@@ -121,7 +123,7 @@ export default function LayoutTwo(props) {
       </ScrollTop> */}
 
       <ScrollTop {...props}>
-        <Fab color="secondary" size="small" aria-label="scroll back to top">
+        <Fab color="secondary" size="small" aria-label="scroll back to top" className={classes.topButton}>
           <ArrowUpwardIcon />
         </Fab>
       </ScrollTop>
