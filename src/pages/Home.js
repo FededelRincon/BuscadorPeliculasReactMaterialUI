@@ -28,9 +28,9 @@ export const Home = () => {
                     <Carousel movies={carrouselMovies.result} />
             )}
 
-            <Container 
+            {/* <Container 
                 // disableGutters={true}
-            >
+            > */}
                 <Grid container spacing={0}>
                     <Grid item xs={12} lg={6}>
                         {/* <Grid container justifyContent="center"> */}
@@ -51,7 +51,7 @@ export const Home = () => {
                     </Grid>
 
                 </Grid>
-            </Container>
+            {/* </Container> */}
 
         </>
     )

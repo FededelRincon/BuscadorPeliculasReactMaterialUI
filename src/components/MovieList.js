@@ -11,9 +11,9 @@ const useStyles = makeStyles(theme => ({
         // maxWidth: 752,
         backgroundColor: '#9e9e9e',
         // margin: '1rem 5rem',
-        padding: '0 2rem',
+        padding: '0.5rem 2rem',
         [theme.breakpoints.up("sm")]: {
-            margin: '1rem 5 rem',
+            margin: '1rem 1rem',
         }
     },
     demo: {

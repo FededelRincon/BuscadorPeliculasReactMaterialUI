@@ -11,7 +11,7 @@ import { ReactComponent as Logo } from "../assets/TMDB2.svg";
 
 import { Link } from "react-router-dom";
 
-import { Fab } from '@material-ui/core';
+import { Grid, Fab } from '@material-ui/core';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 
 const useStyles = makeStyles((theme) => ({
@@ -19,24 +19,52 @@ const useStyles = makeStyles((theme) => ({
     position: 'fixed',
     bottom: theme.spacing(2),
     right: theme.spacing(2),
+    zIndex: 999
   },
   logo: {
-    marginRight: '50px',
-    marginLeft: '20px',
+    [theme.breakpoints.up("xs")]: {
+      minWidth: '3rem',
+    },
+    [theme.breakpoints.up("lg")]: {
+      marginRight: '2rem',
+    },
+    [theme.breakpoints.up("xl")]: {
+      marginRight: '2rem',
+    },
+    [theme.breakpoints.up("xxl")]: {
+      minWidth: '20rem',
+      minHeight: '4rem',
+    },
   },
   menuButtons: {
-    marginLeft:'5px',
-    padding: '12px',
-    paddingLeft: '15px',
     textDecoration: 'none',
     color: '#000',
     "&:hover": {
-        textDecoration: 'none',
-        opacity:'1'
-    }
+      textDecoration: 'none',
+      opacity:'1'
+    },
+    [theme.breakpoints.up("xs")]: {
+      fontSize: '0.6rem',
+    },
+    [theme.breakpoints.up("sm")]: {
+      fontSize: '1rem',
+      padding: '1rem',
+    },
+    [theme.breakpoints.up("md")]: {
+      margin: '0 1rem',
+    },
+    [theme.breakpoints.up("lg")]: {
+      margin: '0 2rem',
+    },
+    [theme.breakpoints.up("xl")]: {
+      margin: '0 5rem',
+    },
+    [theme.breakpoints.up("xxl")]: {
+      fontSize: '1.3rem',
+    },
   },
   topButton: {
-    right: theme.spacing(-1),
+    right: theme.spacing(2),
   }
 }));
 
@@ -83,11 +111,15 @@ export default function LayoutTwo(props) {
 
 
   return (
-    <React.Fragment>
+    <>
       <CssBaseline />
       <AppBar>
+      <Grid container spacing={0}>
+      <Grid item xs={12}>
+      
         <Toolbar>
             <Logo className={classes.logo} />
+            {/* TODO: hacer q esto me lleve al home */}
 
             <Button>
                 <Link to="/" color="inherit" className={classes.menuButtons} >
@@ -114,6 +146,8 @@ export default function LayoutTwo(props) {
             </Button>
 
         </Toolbar>
+        </Grid>
+        </Grid>
       </AppBar>
       <Toolbar id="back-to-top-anchor" />
       {/* <ScrollTop {...props}>
@@ -127,6 +161,6 @@ export default function LayoutTwo(props) {
           <ArrowUpwardIcon />
         </Fab>
       </ScrollTop>
-    </React.Fragment>
+    </>
   );
 }
