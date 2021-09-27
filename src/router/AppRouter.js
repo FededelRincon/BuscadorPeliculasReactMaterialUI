@@ -6,6 +6,7 @@ import {
     Redirect,
     Switch
 } from 'react-router-dom';
+import Footer from '../components/Footer';
 
 import Layout from '../components/Layout';
 
@@ -15,7 +16,6 @@ import Movie from '../pages/Movie';
 import NewMovies from '../pages/NewMovies';
 import PopularMovies from '../pages/PopularMovies';
 import SearchPage from '../pages/SearchPage';
-
 
 export const AppRouter = () => {
 
@@ -44,6 +44,7 @@ export const AppRouter = () => {
 
                     <Redirect to="/" />
                 </Switch>
+                <Footer />
                 {/* TODO: footer ?? */}
             </div>
         </Router>
