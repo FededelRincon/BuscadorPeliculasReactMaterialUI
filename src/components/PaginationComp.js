@@ -11,8 +11,15 @@ const useStyles = makeStyles((theme) => ({
     },
     container: {
         margin: '30px auto',
-        width: '33%',
+        [theme.breakpoints.up("xs")]: {
+            maxWidth: '19rem',
+            width: '90%',
+            margin: '1rem auto',
+            padding: '0.5rem',
+        },
     },
+
+
 }));
 
 
@@ -39,11 +46,12 @@ const PaginationComp = ({ pageTotal, page, setPage }) => {
                         key= {page}
                         count={pageTotal} 
                         defaultPage={page}
-                        // boundaryCount={1}
-                        siblingCount={1}
+                        boundaryCount={1}
+                        // siblingCount={1}
+                        siblingCount={0}
                         variant="outlined" 
                         color="primary" 
-                        size="large" 
+                        size="medium" 
                         onClick= {paginatorButton}
                     />
                 </div>
