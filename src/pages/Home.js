@@ -5,7 +5,7 @@ import { API_KEY, URL_API } from '../utils/constants';
 import Carousel from '../components/Carousel';
 import useFetch from '../hooks/useFetch';
 import MovieList from '../components/MovieList';
-import CircularProgress from "@material-ui/core/CircularProgress";
+import CircularLoading from '../components/CircularLoading';
 
 
 export const Home = () => {
@@ -24,7 +24,7 @@ export const Home = () => {
 
     return (
         <>
-            {(carrouselMovies.loading || carrouselMovies.result.success === false) ? <CircularProgress /> : (
+            {(carrouselMovies.loading || carrouselMovies.result.success === false) ? <CircularLoading /> : (
                     <Carousel movies={carrouselMovies.result} />
             )}
 
@@ -35,7 +35,7 @@ export const Home = () => {
                     <Grid item xs={12} lg={6}>
                         {/* <Grid container justifyContent="center"> */}
                             {( popularMovies.loading || popularMovies.result.success === false) 
-                                ? ( <CircularProgress /> ) 
+                                ? ( <CircularLoading /> ) 
                                 : ( <MovieList listTitle="Titulo popular Movies" movies={popularMovies.result.results} /> 
                             )}
                         {/* </Grid> */}
@@ -44,7 +44,7 @@ export const Home = () => {
                     <Grid item xs={12} lg={6}>
                         {/* <Grid container justifyContent="center"> */}
                             {( topRatedMovies.loading || topRatedMovies.result.success === false) 
-                                ? ( <CircularProgress /> ) 
+                                ? ( <CircularLoading /> ) 
                                 : ( <MovieList listTitle="Titulo mas votadas Movies" movies={topRatedMovies.result.results} /> 
                             )}
                         {/* </Grid> */}
