@@ -91,7 +91,6 @@ const Item = ({ id, original_title, poster_path, backdrop_path, overview }) => {
 
     return (
         <Paper className={classes.container}>
-            {/* TODO: CardMedia en lugar de los imgs??  */}
             <img src={imagenBackground} className={classes.imagenBackground} alt={backdrop_path}/>
             <img src={imagenFront} className={classes.imageFront} alt={poster_path}/>
             <div className={classes.father}>

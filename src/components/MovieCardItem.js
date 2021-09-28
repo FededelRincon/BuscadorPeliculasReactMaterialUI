@@ -79,7 +79,6 @@ const MovieCardItem = ({movie}) => {
                 <CardContent sx={{ flexGrow: 1 }} className={classes.titleContent}>
                     <Typography variant="subtitle1" component="span" className={classes.title}>
                         {title}
-                        {/* TODO: how fix if title is too long when collapse ?? */}
                     </Typography>
                 </CardContent>
 

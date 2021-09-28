@@ -7,12 +7,23 @@ import MovieCardItem from '../components/MovieCardItem';
 import PaginationComp from '../components/PaginationComp';
 import { Container, Grid } from '@material-ui/core';
 import CircularProgress from "@material-ui/core/CircularProgress";
+import Footer from '../components/Footer';
 
 
 const useStyles = makeStyles({
     title:{
         textAlign: 'center',
         margin: '15px 0 10px 0',
+    },
+    paginador:{
+        alignItems: 'center',
+        margin: '0 auto',
+        width: '5rem',
+        height: '5rem',
+    },
+    NoResult: {
+        textAlign: 'center',
+        margin: '1rem 1rem 25rem 1rem',
     },
 });
 
@@ -55,8 +66,12 @@ const PopularMovies = () => {
             <Grid container spacing={2} alignItems="center">
                 {
                     loading 
-                        ? (<CircularProgress /> ) : (
-                            movieList.map( (movie) => (
+                        ? (
+                            <div className={classes.paginador}>
+                                <CircularProgress /> 
+                            </div> 
+                        ) : (
+                            movieList?.map( (movie) => (
                                 <Grid item xs={12} sm={6} md={3} key={movie.id} >
                                     <MovieCardItem movie={movie} key={movie.id} />
                                 </Grid>
@@ -66,7 +81,14 @@ const PopularMovies = () => {
             </Grid>
             </Container>
 
-            <PaginationComp pageTotal={pageTotal} setPage={setPage} page={page} />
+            {
+                (movieList === undefined) ? (
+                    <p className={classes.NoResult}>No hay datos para mostrar</p>
+                    ) : (
+                    <PaginationComp pageTotal={pageTotal} setPage={setPage} page={page} />
+                )
+            }
+            <Footer />
         </>
     )
 }
