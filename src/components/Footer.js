@@ -7,8 +7,8 @@ const useStyles = makeStyles(theme => ({
     container: {
         backgroundColor: '#00796b',
         padding: '1rem',
+        minHeight: '11vh',
         
-        // minHeight: '11vh',
         // display: 'flex',
         // flexDirection: 'column'
         // marginTop: 'calc(90% - 60px)',

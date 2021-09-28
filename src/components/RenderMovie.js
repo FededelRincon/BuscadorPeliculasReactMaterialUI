@@ -25,20 +25,46 @@ const useStyles = makeStyles( (theme) => ({
         position: 'absolute',
         zIndex: '-1',
         backgroundSize: "cover",
-
-        // backgroundPosition: 'center',
-        // backgroundAttachment: 'scroll',
-        // backgroundAttachment: 'fixed',
-        // backgroundImage: `${imagenBackground}`,
+        
         backgroundColor: '#66999',
+        [theme.breakpoints.up("xs")]: {
+            height: '200%',
+        },
+        [theme.breakpoints.up("sm")]: {
+            height: '160%',
+        },
+        [theme.breakpoints.up("md")]: {
+            height: '150%',
+        },
+        [theme.breakpoints.up("lg")]: {
+            height: '120%',
+        },
     },
     imgFront: {
         position: 'relative',
         height: '90%',
-        size: '200px',
         margin: '3rem auto 0 auto',
         width: '55%',
         minWidth: '18rem',
+        border: '5px solid #a7a7a7a7',
+        [theme.breakpoints.up("xs")]: {
+            left: '5%',
+        },
+        [theme.breakpoints.up("sm")]: {
+            minWidth: '25rem',
+        },
+        [theme.breakpoints.up("md")]: {
+            minWidth: '24rem',
+            maxHeight: '35rem',
+        },
+        [theme.breakpoints.up("lg")]: {
+            minWidth: '30rem',
+            maxHeight: '45rem',
+        },
+        [theme.breakpoints.up("xl")]: {
+            minWidth: '30rem',
+            maxHeight: '50rem',
+        },
     },
     title: {
         margin: '1rem 0 1rem 0',

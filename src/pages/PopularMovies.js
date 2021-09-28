@@ -43,7 +43,7 @@ const PopularMovies = () => {
             setLoading(true);
             setError(false);
             try {
-                const url = `${URL_API}/movie/asd/popular?api_key=${API_KEY}&lenguage=es-ES&page=${page}`
+                const url = `${URL_API}/movie/popular?api_key=${API_KEY}&lenguage=es-ES&page=${page}`
                 const response = await fetch(url);
                 const result = await response.json();
                 

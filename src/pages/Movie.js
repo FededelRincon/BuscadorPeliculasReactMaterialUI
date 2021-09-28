@@ -1,10 +1,11 @@
 import React from 'react';
 import { useParams } from 'react-router';
-import CircularProgress from "@material-ui/core/CircularProgress";
 
 import useFetch from '../hooks/useFetch';
 import { API_KEY, URL_API } from '../utils/constants'
 import RenderMovie from '../components/RenderMovie';
+import CircularLoading from '../components/CircularLoading';
+
 
 const Movie = () => {
     const { id } = useParams();
@@ -13,8 +14,7 @@ const Movie = () => {
     );
 
     if(movieInfo.loading || movieInfo.result.success === false) {
-        return <CircularProgress />
-        // TODO: poner el cargador al medio de todo y/o mas grande
+        return <CircularLoading />
     } else {
         return <RenderMovie movieInfo={movieInfo.result} />
     }

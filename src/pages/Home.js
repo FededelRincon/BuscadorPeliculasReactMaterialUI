@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Grid } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 
 import { API_KEY, URL_API } from '../utils/constants';
 import Carousel from '../components/Carousel';
@@ -29,32 +29,23 @@ export const Home = () => {
                     <Carousel movies={carrouselMovies.result} />
             )}
 
-            {/* <Container 
-                // disableGutters={true}
-            > */}
-                <Grid container spacing={0}>
-                    <Grid item xs={12} lg={6}>
-                        {/* <Grid container justifyContent="center"> */}
-                            {( popularMovies.loading || popularMovies.result.success === false) 
-                                ? ( <CircularLoading /> ) 
-                                : ( <MovieList listTitle="Titulo popular Movies" movies={popularMovies.result.results} /> 
-                            )}
-                        {/* </Grid> */}
-                    </Grid>
-
-                    <Grid item xs={12} lg={6}>
-                        {/* <Grid container justifyContent="center"> */}
-                            {( topRatedMovies.loading || topRatedMovies.result.success === false) 
-                                ? ( <CircularLoading /> ) 
-                                : ( <MovieList listTitle="Titulo mas votadas Movies" movies={topRatedMovies.result.results} /> 
-                            )}
-                        {/* </Grid> */}
-                    </Grid>
-
+            <Grid container spacing={0}>
+                <Grid item xs={12} lg={6}>
+                    {( popularMovies.loading || popularMovies.result.success === false) 
+                        ? ( <CircularLoading /> ) 
+                        : ( <MovieList listTitle="Titulo popular Movies" movies={popularMovies.result.results} /> 
+                    )}
                 </Grid>
-            {/* </Container> */}
+
+                <Grid item xs={12} lg={6}>
+                    {( topRatedMovies.loading || topRatedMovies.result.success === false) 
+                        ? ( <CircularLoading /> ) 
+                        : ( <MovieList listTitle="Titulo mas votadas Movies" movies={topRatedMovies.result.results} /> 
+                    )}
+                </Grid>
+            </Grid>
+
             <Footer />
-            
         </>
     )
 }
