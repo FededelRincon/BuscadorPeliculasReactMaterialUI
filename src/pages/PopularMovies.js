@@ -35,15 +35,22 @@ const PopularMovies = () => {
     const [page, setPage] = useState(1);
     const [pageTotal, setPageTotal] = useState(1)
     const [loading, setLoading] = useState(true);
-    
+    const [error, setError] = useState(false);
+
+
     useEffect(() => {
         const searchInfoApi = async () => {
             setLoading(true);
+            setError(false);
             try {
                 const url = `${URL_API}/movie/popular?api_key=${API_KEY}&lenguage=es-ES&page=${page}`
                 const response = await fetch(url);
                 const result = await response.json();
                 
+                if(result.success === false){
+                    setError(true)
+                }
+
                 setMovieList(result.results);
                 setPageTotal(result.total_pages);
                 setLoading(false);
@@ -82,11 +89,12 @@ const PopularMovies = () => {
             </Container>
 
             {
-                (movieList === undefined) ? (
-                    <p className={classes.NoResult}>No hay datos para mostrar</p>
-                    ) : (
+                (!loading && !error) && 
                     <PaginationComp pageTotal={pageTotal} setPage={setPage} page={page} />
-                )
+            }
+            {
+                (error) && 
+                    <p className={classes.NoResult}>No hay datos para mostrar</p>
             }
             <Footer />
         </>

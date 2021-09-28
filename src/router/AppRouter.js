@@ -6,8 +6,6 @@ import {
     Redirect,
     Switch
 } from 'react-router-dom';
-import Footer from '../components/Footer';
-
 import Layout from '../components/Layout';
 
 //Pages
@@ -23,7 +21,6 @@ export const AppRouter = () => {
     return (
         <Router>
             <div>
-                {/* <Layout /> */}
                 <Layout />
                 <Switch >
                     <Route exact path="/">
@@ -44,7 +41,6 @@ export const AppRouter = () => {
 
                     <Redirect to="/" />
                 </Switch>
-                {/* <Footer /> */}
             </div>
         </Router>
     );
