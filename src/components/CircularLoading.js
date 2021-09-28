@@ -7,7 +7,8 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles({
     containerBig: {
         display: 'flex',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        margin: '5rem',
     },
     containerSmall: {
         margin: '5rem auto 1rem auto',

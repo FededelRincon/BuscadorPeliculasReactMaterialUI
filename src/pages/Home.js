@@ -6,6 +6,7 @@ import Carousel from '../components/Carousel';
 import useFetch from '../hooks/useFetch';
 import MovieList from '../components/MovieList';
 import CircularLoading from '../components/CircularLoading';
+import Footer from '../components/Footer';
 
 
 export const Home = () => {
@@ -52,7 +53,8 @@ export const Home = () => {
 
                 </Grid>
             {/* </Container> */}
-
+            <Footer />
+            
         </>
     )
 }

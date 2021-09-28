@@ -44,8 +44,7 @@ export const AppRouter = () => {
 
                     <Redirect to="/" />
                 </Switch>
-                <Footer />
-                {/* TODO: footer ?? */}
+                {/* <Footer /> */}
             </div>
         </Router>
     );

@@ -7,6 +7,19 @@ const useStyles = makeStyles(theme => ({
     container: {
         backgroundColor: '#00796b',
         padding: '1rem',
+        
+        // minHeight: '11vh',
+        // display: 'flex',
+        // flexDirection: 'column'
+        // marginTop: 'calc(90% - 60px)',
+        // bottom: '0',
+
+        // position: 'sticky',
+        // position:'relative',
+        // bottom:'0',
+        // width:'100%',
+        // height:'60px',   /* Height of the footer */
+        // background:'#6cf',
     },
     footer: {
         textAlign: 'center',

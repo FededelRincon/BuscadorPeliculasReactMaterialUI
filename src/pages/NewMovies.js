@@ -7,8 +7,7 @@ import MovieCardItem from '../components/MovieCardItem';
 import PaginationComp from '../components/PaginationComp';
 import { Container, Grid } from '@material-ui/core';
 import CircularProgress from "@material-ui/core/CircularProgress";
-import CircularLoading from '../components/CircularLoading';
-
+import Footer from '../components/Footer';
 
 
 const useStyles = makeStyles({
@@ -24,7 +23,7 @@ const useStyles = makeStyles({
     },
     NoResult: {
         textAlign: 'center',
-        margin: '1rem'
+        margin: '1rem 1rem 25rem 1rem',
     },
 });
 
@@ -89,6 +88,7 @@ const NewMovies = () => {
                     <PaginationComp pageTotal={pageTotal} setPage={setPage} page={page} />
                 )
             }
+            <Footer />
         </>
     )
 }
