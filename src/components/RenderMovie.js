@@ -67,7 +67,7 @@ const useStyles = makeStyles( (theme) => ({
         },
     },
     title: {
-        margin: '1rem 0 1rem 0',
+        margin: '3rem 0 1rem 0',
         textAlign: 'center',
         backgroundColor: '#a7a7a7a7',
         borderRadius: '20px',
@@ -146,7 +146,7 @@ const RenderMovie = ({ movieInfo }) => {
                         )
                     }
                 </Grid>
-                <Grid item md={1}></Grid>
+                <Grid item md={1}></Grid> {/* this is to show the middle of the background picture */}
                 <Grid item xs={12} md={4}>
                     <Typography variant="h4" gutterBottom className={classes.title}>
                         {original_title}
@@ -199,7 +199,7 @@ const RenderMovie = ({ movieInfo }) => {
                     </Link>
                 </CardActions>
                 </Grid>
-                <Grid item xs={1} md={1}></Grid>
+                {/* <Grid item xs={1} md={1}></Grid> */}
             </Grid>
         </>
     )
