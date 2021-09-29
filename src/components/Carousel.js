@@ -6,7 +6,12 @@ import { makeStyles } from '@material-ui/styles';
 
 import { Link } from "react-router-dom";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
+    carousel: {
+        [theme.breakpoints.down("md")]: {
+            display: 'none',
+        },
+    },
     imagenBackground: {
         backgroundSize: 'cover',
         maxWidth: '100%',
@@ -14,6 +19,8 @@ const useStyles = makeStyles({
         opacity: '60%'
     },
     imageFront:{
+        border: '5px solid #a7a7a7a7',
+        borderRadius: '15px',
         position: 'absolute',
         height: '350px',
         top: '8%',
@@ -47,14 +54,15 @@ const useStyles = makeStyles({
         textDecoration:'none', 
         color: '#000',
     },
-})
-
+}));
 
 export default function Carousell({ movies }) {
-    const {results} = movies
+    const {results} = movies;
+    const classes = useStyles();
 
     return (
         <Carousel
+        className={classes.carousel}
         indicatorIconButtonProps={{
             style: {
                 padding: '8px',
@@ -71,9 +79,7 @@ export default function Carousell({ movies }) {
                 style: {
                     marginTop: '0px',
                 }
-        
             }}
-            
         >
             {results.map((movie) => (
                 <Item key={movie.id} {...movie} />
@@ -92,27 +98,28 @@ const Item = ({ id, original_title, poster_path, backdrop_path, overview }) => {
     return (
         <Paper className={classes.container}>
             <img src={imagenBackground} className={classes.imagenBackground} alt={backdrop_path}/>
-            <img src={imagenFront} className={classes.imageFront} alt={poster_path}/>
-            <div className={classes.father}>
-                <div className={classes.son}>
-                    <Typography variant="h4" gutterBottom>
-                        {original_title}
-                    </Typography>
-                    <Typography variant="body2" gutterBottom>
-                        {overview}
-                    </Typography>
-                
-                    <div className={classes.containerButton}>
-                        <Button size="large" color='primary' variant="contained">
-                            <Link to={`/pelicula/${id}`} color="inherit" className={classes.button} >
-                                Mas info...
-                            </Link>
-                        </Button>
 
+            <Link to={`/pelicula/${id}`} color="inherit" className={classes.button} >
+                <img src={imagenFront} className={classes.imageFront} alt={poster_path}/>
+                <div className={classes.father}>
+                    <div className={classes.son}>
+                        <Typography variant="h4" gutterBottom>
+                            {original_title}
+                        </Typography>
+                        <Typography variant="body2" gutterBottom>
+                            {overview}
+                        </Typography>
+                    
+                        <div className={classes.containerButton}>
+                            <Button size="large" color='primary' variant="contained">
+                                {/* <Link to={`/pelicula/${id}`} color="inherit" className={classes.button} > */}
+                                    Mas info...
+                                {/* </Link> */}
+                            </Button>
+                        </div>
                     </div>
                 </div>
-            </div>
-
+            </Link>
         </Paper>
     );
 };
