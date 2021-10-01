@@ -121,13 +121,16 @@ const useStyles = makeStyles((theme) => ({
     },
     paper: {
         backgroundColor: theme.palette.background.paper,
-        border: '2px solid #000',
+        // border: '2px solid #000',
         borderRadius: '20px',
-        boxShadow: theme.shadows[6],
+        // boxShadow: theme.shadows[6],
+        boxShadow: '0px 2px 15px 0px rgb(255 231 231 / 60%), 0px 6px 10px 0px rgb(187 187 187 / 14%), 0px 1px 18px 0px rgb(255 233 233 / 32%)',
         padding: theme.spacing(0, 0, 0),
         width: '400px',
-    	height: '400px',
+    	// height: '400px',
         zIndex: '45',
+        position: 'relative',
+        overflow: 'hidden',
         
         // backgroundColor: '#951',
         // padding: theme.spacing(2, 4, 3),
@@ -147,16 +150,25 @@ const useStyles = makeStyles((theme) => ({
         // bottom: '0',
         // left: '0',
         // right: '0',
+        height: '100%',
         display: 'flex',
+        alignItems: 'flex-end',
+        padding: '20px',
+        color: 'white',
     },
     imgBackground:{
-        // display: 'none',
+        // opacity: '60%',//va con algo de esto !!!!
+        display: 'block',
+        width: '100%',
+        height: '100%',
+        objectFit: 'cover',
+        objectPosition: 'center',
         // position: 'relative',
-        opacity: '35%',
+        // opacity: '35%',
         // position: 'fixed',
-        position: 'absolute',
-        zIndex: '-10',
-        alignItems: 'center',
+        // position: 'absolute',
+        // zIndex: '-10',
+        // alignItems: 'center',
         // backgroundSize: 'contain',
         // maxWidth: '150%',
         // maxWidth: '100%',
@@ -166,16 +178,16 @@ const useStyles = makeStyles((theme) => ({
         // overflow: 'hidden',
         // textAlign: 'center',
         // padding: '2.5rem 1.5rem'
-        maxWidth: '100%',
-        minHeight: '100%',
-        top: `11%`,
-        left: `00%`,
+        // maxWidth: '100%',
+        // minHeight: '100%',
+        // top: `11%`,
+        // left: `00%`,
         // maxWidth: '40%',
         // minHeight: '70%',
         // top: `15%`,
         // left: `30%`,
         // transform: `translate(-40%, -$60%)`,
-
+        
         // objectFit: 'cover,',
         // maxHeight: '200%',
         // height: 'auto',
@@ -183,6 +195,26 @@ const useStyles = makeStyles((theme) => ({
         // overflow: 'hidden',
         // width: 400,
         // objectFit: 'cover',
+    },
+    containerImg:{
+        position: 'absolute',
+        width: '100%',
+        left: '0',
+        right: '0',
+        top: '0',
+        bottom: '0',
+        height: '100%',
+        zIndex: '-1',
+        "&::before": {
+            content: '""',
+            position: 'absolute',
+            right: '0',
+            left: '0',
+            top: '0',
+            bottom: '0',
+            background: 'rgb(255,255,255)',
+            background: 'linear-gradient(180deg, rgb(255 255 255 / 0%) 0%',
+        }
     },
     button: {
         margin: '0 auto',
@@ -192,7 +224,8 @@ const useStyles = makeStyles((theme) => ({
     },
     containerButton: {
         margin: '0 auto',
-
+        textAlign: 'center',
+        marginTop: '16px'
     }
 }));
 
