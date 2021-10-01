@@ -94,7 +94,6 @@ const useStyles = makeStyles( (theme) => ({
 const RenderMovie = ({ movieInfo }) => {
     const classes = useStyles();
     const { backdrop_path, poster_path, genres, id, title, original_title, overview, release_date, spoken_languages} = movieInfo;
-
     const history = useHistory();
 
     // const posterPath = `https://image.tmdb.org/t/p/original${poster_path}`;
@@ -158,9 +157,12 @@ const RenderMovie = ({ movieInfo }) => {
                         </Typography>
                         
                         <Typography variant="body1" component="span" className={classes.description}>
-                            {overview} Lanzamiento: {release_date.slice(0,4)}
+                            {
+                                overview ? <p>{overview}</p> : ( <p>No hay descripcion disponible.</p>)
+                            }
+                            Lanzamiento: {release_date.slice(0,4)} 
                         </Typography>
-                        
+                            
                         <Typography variant="h5" className={classes.ul}>
                             Generos: 
                         </Typography>

@@ -6,7 +6,8 @@ import { Container, Grid } from '@material-ui/core';
 import queryString from "query-string";
 
 
-import MovieCardItem from '../components/MovieCardItem';
+import MovieCardItemModal from '../components/MovieCardItemModal';
+// import MovieCardItem from '../components/MovieCardItem';
 import PaginationComp from '../components/PaginationComp';
 import { ReactComponent as Logo } from "../assets/Search.svg";
 import { API_KEY, URL_API } from '../utils/constants';
@@ -85,7 +86,6 @@ export default function SearchPage() {
                 
             const response = await fetch(`${URL_API}/search/movie?api_key=${API_KEY}&language=es-ES&query=${s}&page=${page}` );
             const movies = await response.json();
-            // console.log(movies)
 
             if (movies.results.length === 0) {
                 setShowNoResult(true);
@@ -133,7 +133,7 @@ export default function SearchPage() {
                             movieList.length === 0 ? null  : (
                                 movieList.map( (movie) => (
                                     <Grid item xs={12} sm={6} md={3} key={movie.id} >
-                                        <MovieCardItem movie={movie} key={movie.id} />
+                                        <MovieCardItemModal movie={movie} key={movie.id} />
                                     </Grid>
                                 ))
                             )
@@ -151,11 +151,6 @@ export default function SearchPage() {
                         <PaginationComp pageTotal={pageTotal} setPage={setPage} page={page} />
                     )
             }
-            {/* { original
-                (movies.length === 0 || pageTotal === 1 ) ? null : (
-                    <PaginationComp pageTotal={pageTotal} setPage={setPage} page={page} />
-                )
-            } */}
         </>
     );
 }
