@@ -86,7 +86,6 @@ export default function SearchPage() {
                 
             const response = await fetch(`${URL_API}/search/movie?api_key=${API_KEY}&language=es-ES&query=${s}&page=${page}` );
             const movies = await response.json();
-            // console.log(movies)
 
             if (movies.results.length === 0) {
                 setShowNoResult(true);

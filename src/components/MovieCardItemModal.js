@@ -44,7 +44,6 @@ const useStyles = makeStyles( (theme) => ({
 
 
 const MovieCardItemModal = ({movie}) => {
-    console.log(movie)
     const { backdrop_path, poster_path, title, original_title, overview, release_date} = movie;
     const imagenFront = `${API_RESULT}${poster_path}`;
     const imagenBackground = `${API_RESULT}${backdrop_path}`;
