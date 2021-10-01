@@ -28,14 +28,6 @@ const useStyles = makeStyles((theme) => ({
         position: 'relative',
         overflow: 'hidden',
     },
-    containerText:{
-        height: '100%',
-        display: 'flex',
-        alignItems: 'flex-end',
-        padding: '20px',
-        color: '#000',
-        textShadow: '0px 0px 5px #fff',
-    },
     containerImg:{
         position: 'absolute',
         width: '100%',
@@ -62,6 +54,14 @@ const useStyles = makeStyles((theme) => ({
         objectFit: 'cover',
         objectPosition: 'center',
     },
+    containerText:{
+        height: '100%',
+        display: 'flex',
+        alignItems: 'flex-end',
+        padding: '20px',
+        color: '#000',
+        textShadow: '0px 0px 5px #fff',
+    },
     title: {
         textAlign: 'center',
     },
@@ -83,7 +83,10 @@ const useStyles = makeStyles((theme) => ({
         textShadow: '1px 1px 1px #000',
         borderRadius: '50%',
         padding: '0',
-    }
+    },
+    containerButton: {
+        margin: '0 auto',
+    },
 }));
 
 export default function SimpleModal({ title, imagenBackground, imagenFront, original_title, overview, release_date }) {
@@ -99,7 +102,7 @@ export default function SimpleModal({ title, imagenBackground, imagenFront, orig
     };
 
     return (
-        <div className={classes.button}>
+        <div className={classes.containerButton}>
             <Button 
                 onClick={handleOpen}
                 variant="contained" 
@@ -154,13 +157,13 @@ export default function SimpleModal({ title, imagenBackground, imagenFront, orig
                                     {title} 
                                 </Typography>
                     
-                                <Typography variant="body2" component="span" className={classes.description}>
+                                <Typography variant="body2" component="span">
                                     {
                                         overview ? <p>{overview}</p> : ( <p>No hay descripcion disponible.</p>)
                                     }
                                 </Typography>
 
-                                <Typography variant="body1" component="span" className={classes.release_date}>
+                                <Typography variant="body1" component="span">
                                     Año de estreno: {release_date?.slice(0,4)}
                                 </Typography>
                             </div>
