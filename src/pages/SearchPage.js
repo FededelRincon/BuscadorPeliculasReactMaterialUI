@@ -5,9 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import { Container, Grid } from '@material-ui/core';
 import queryString from "query-string";
 
-
 import MovieCardItemModal from '../components/MovieCardItemModal';
-// import MovieCardItem from '../components/MovieCardItem';
 import PaginationComp from '../components/PaginationComp';
 import { ReactComponent as Logo } from "../assets/Search.svg";
 import { API_KEY, URL_API } from '../utils/constants';
@@ -58,7 +56,7 @@ export default function SearchPage() {
     const handleInputChange = (e) => {
         setFirstRender(false);
         if (e.target.value === ' ') {
-            e.target.value = '';  //no dejo poner espacios en blanco
+            e.target.value = '';
             return null
         }
         const urlParams = queryString.parse(location.search);//es el query en la barra de navegaacion

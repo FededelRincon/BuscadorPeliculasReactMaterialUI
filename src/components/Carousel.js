@@ -112,9 +112,7 @@ const Item = ({ id, original_title, poster_path, backdrop_path, overview }) => {
                     
                         <div className={classes.containerButton}>
                             <Button size="large" color='primary' variant="contained">
-                                {/* <Link to={`/pelicula/${id}`} color="inherit" className={classes.button} > */}
                                     Mas info...
-                                {/* </Link> */}
                             </Button>
                         </div>
                     </div>
