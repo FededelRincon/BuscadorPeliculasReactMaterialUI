@@ -87,6 +87,7 @@ const useStyles = makeStyles((theme) => ({
     containerButton: {
         margin: '0 auto',
     },
+
 }));
 
 export default function SimpleModal({ title, imagenBackground, imagenFront, original_title, overview, release_date }) {
@@ -106,8 +107,8 @@ export default function SimpleModal({ title, imagenBackground, imagenFront, orig
             <Button 
                 onClick={handleOpen}
                 variant="contained" 
-                color="primary"  
-                
+                color="primary"
+                className={classes.button}
                 href="#contained-buttons"
                 size="large"
                 component="div"
@@ -144,12 +145,6 @@ export default function SimpleModal({ title, imagenBackground, imagenFront, orig
                             >
                                 X
                             </Button>
-                            {/* <button
-                                onClick={handleClose}
-                                className={classes.closeButton}
-                            >
-                                X
-                            </button> */}
                         </div>
                         <div className={classes.containerText}>
                             <div id="transition-modal-description">

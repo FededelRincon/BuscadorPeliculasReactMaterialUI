@@ -119,8 +119,9 @@ export default function LayoutTwo(props) {
       <Grid item xs={12}>
       
         <Toolbar>
-            <Logo className={classes.logo} />
-            {/* TODO: hacer q esto me lleve al home */}
+            <Link to="/" color="inherit" >
+                <Logo className={classes.logo} />
+            </Link>
 
             <Button>
                 <Link to="/" color="inherit" className={classes.menuButtons} >
@@ -151,11 +152,6 @@ export default function LayoutTwo(props) {
         </Grid>
       </AppBar>
       <Toolbar id="back-to-top-anchor" />
-      {/* <ScrollTop {...props}>
-        <Fab color="secondary" size="small" aria-label="scroll back to top">
-          <KeyboardArrowUpIcon />
-        </Fab>
-      </ScrollTop> */}
 
       <ScrollTop {...props}>
         <Fab color="secondary" size="small" aria-label="scroll back to top" className={classes.topButton}>

@@ -2,7 +2,6 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Skeleton from '@material-ui/lab/Skeleton';
-// import { Link } from "react-router-dom";
 import { Card, CardMedia, CardContent, CardActions } from '@material-ui/core';
 import SimpleModal from './Modal';
 
@@ -12,16 +11,21 @@ import './MovieCardItem.css';
 
 
 const useStyles = makeStyles( (theme) => ({
+    cardHoover:{
+        '&:hover': {
+            opacity: '85%',
+        },
+    },
     cardContent: {
         borderRadius: '15px',
+        width: '100%',
+        height: '100%',
     },
     titleContent: {
         borderRadius: ' 0 0 10px 10px',
         backgroundColor: '#9e9e9e',
         textAlign: 'center',
-
         maxHeight: '100px',
-
         minHeight: '100px',
     },
     title: {
@@ -54,13 +58,15 @@ const MovieCardItemModal = ({movie}) => {
 
     return (
         <>
+            <div className={classes.cardHoover}>
+                
+            
             <Card
                 sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
                 variant='outlined'
                 className={classes.cardContent}
             >
                 {poster_path ? (
-                    // <Link to={`/pelicula/${id}`} className={classes.linkButton} >
                     <CardMedia
                         component="img"
                         sx={{
@@ -71,7 +77,6 @@ const MovieCardItemModal = ({movie}) => {
                         alt={title}
                         title={title}
                     />
-                    // </Link>
                 ) : (
                     <Skeleton 
                         animation="wave"
@@ -94,11 +99,10 @@ const MovieCardItemModal = ({movie}) => {
                         original_title={original_title}
                         overview={overview}
                         release_date={release_date}
-                    >
-                        
-                    </SimpleModal>
+                    />
                 </CardActions>
             </Card>
+            </div>
 
         </>
     )

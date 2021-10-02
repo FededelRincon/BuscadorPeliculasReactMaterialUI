@@ -21,9 +21,6 @@ const useStyles = makeStyles({
         marginTop: '2px',
         backgroundColor: '#e0e0e0',
 
-        
-        // borderTop: '2px solid #9e9e9e',
-        // borderBottom: '2px solid #9e9e9e',
     }
 })
 

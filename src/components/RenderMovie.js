@@ -184,24 +184,24 @@ const RenderMovie = ({ movieInfo }) => {
                             }
                         </ul>
                     </div>
-                <CardActions
-                    className={classes.button}
-                >
-                    <Link to={`/pelicula/${id}`} className={classes.linkButton} >
-                        <Button 
-                            variant="contained" 
-                            color="primary"  
-                            href="#contained-buttons"
-                            size="large"
-                            component="div"
-                            onClick={() => history.goBack()}
-                        >
-                            Volver
-                        </Button>
-                    </Link>
-                </CardActions>
+                    
+                    <CardActions
+                        className={classes.button}
+                    >
+                        <Link to={`/pelicula/${id}`} className={classes.linkButton} >
+                            <Button 
+                                variant="contained" 
+                                color="primary"  
+                                href="#contained-buttons"
+                                size="large"
+                                component="div"
+                                onClick={() => history.goBack()}
+                            >
+                                Volver
+                            </Button>
+                        </Link>
+                    </CardActions>
                 </Grid>
-                {/* <Grid item xs={1} md={1}></Grid> */}
             </Grid>
         </>
     )
