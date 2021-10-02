@@ -94,9 +94,19 @@ const MovieCardItemModal = ({movie}) => {
                         original_title={original_title}
                         overview={overview}
                         release_date={release_date}
-                    >
-                        
-                    </SimpleModal>
+                    />
+                    {/* <Link to={`/pelicula/${id}`} className={classes.linkButton} >
+                        <Button 
+                            variant="contained" 
+                            color="primary"  
+                            className={classes.button}
+                            href="#contained-buttons"
+                            size="large"
+                            component="div"
+                        >
+                            Abrir modal aca
+                        </Button>
+                    </Link> */}
                 </CardActions>
             </Card>
 
